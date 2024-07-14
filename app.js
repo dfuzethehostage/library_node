@@ -1,5 +1,17 @@
 var createError = require("http-errors");
 var express = require("express");
+
+const mongoose = require("mongoose");
+
+mongoose.set("strictQuery", false);
+password = "fHliFxEe0Zbkb0Ob";
+const mongoDB = `mongodb+srv://dfuzethehostage:${password}@cluster0.yorkis3.mongodb.net/local_library?retryWrites=true&w=majority&appName=Cluster0`;
+
+main().catch((err) => console.log(err));
+async function main() {
+  await mongoose.connect(mongoDB);
+}
+
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
@@ -7,6 +19,8 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const catalogRouter = require("./routes/catalog");
+
+// Set up mongoose connection
 
 var app = express();
 

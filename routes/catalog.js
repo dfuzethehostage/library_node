@@ -60,9 +60,7 @@ router.post(
 );
 router.get("/bookinstance/:id", book_instance_controller.bookinstance_detail);
 router.get("/bookinstances", book_instance_controller.bookinstance_list);
-
 router.get("/bookinstances", book_instance_controller.bookinstance_list);
-
 router.get("/bookinstances", book_instance_controller.bookinstance_list);
 
 module.exports = router;
