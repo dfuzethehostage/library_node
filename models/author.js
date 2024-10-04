@@ -19,9 +19,13 @@ AuthorSchema.virtual("name").get(function () {
 });
 
 AuthorSchema.virtual("lifespan").get(function () {
-  return `${DateTime.fromJSDate(this.date_of_birth).toLocaleString(
-    DateTime.DATE_MED
-  )}-${DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)}`;
+  if (this.date_of_death) {
+    return `${DateTime.fromJSDate(this.date_of_birth).toLocaleString(
+      DateTime.DATE_MED
+    )}-${DateTime.fromJSDate(this.date_of_death).toLocaleString(
+      DateTime.DATE_MED
+    )}`;
+  } else return "";
 });
 
 AuthorSchema.virtual("url").get(function () {
